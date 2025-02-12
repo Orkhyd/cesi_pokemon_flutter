@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_1/src/pages/pokemon_card.dart';
 import 'package:pokemon_1/src/services/pokemon_api.dart';
 import '../models/pokemon.dart';
 
@@ -43,19 +44,26 @@ class _PokemonListState extends State<PokemonList> {
                 itemBuilder: (BuildContext context, int index) {
                   final pokemon = snapshot.data![index];
                   return GestureDetector(
-                      // onTap: () => {Navigator.push(context, route)},
+                      onTap: () => {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        PokemonCard(pokemon: pokemon)))
+                          },
                       child: Card(
-                    margin: const EdgeInsets.all(8),
-                    child: ListTile(
-                      leading: Image.network(
-                        pokemon.sprite,
-                        width: 50,
-                        height: 50,
-                      ),
-                      title: Text(pokemon.name),
-                      trailing: Icon(Icons.chevron_right),
-                    ),
-                  ));
+                        margin: const EdgeInsets.all(8),
+                        child: ListTile(
+                          leading: Image.network(
+                            pokemon.sprite,
+                            width: 50,
+                            height: 50,
+                          ),
+                          title: Text(pokemon.name[0].toUpperCase() +
+                              pokemon.name.substring(1)),
+                          trailing: Icon(Icons.chevron_right),
+                        ),
+                      ));
                 },
               );
             }));
