@@ -2,6 +2,7 @@ class Pokemon {
   final String name;
   final String type;
   final String sprite;
+  final String frontImage;
   final int hp;
   final int atk;
   final int def;
@@ -15,6 +16,7 @@ class Pokemon {
       {required this.name,
       required this.type,
       required this.sprite,
+      required this.frontImage,
       required this.hp,
       required this.atk,
       required this.def,

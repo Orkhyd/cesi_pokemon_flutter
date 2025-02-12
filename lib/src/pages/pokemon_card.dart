@@ -18,12 +18,26 @@ class PokemonCard extends StatelessWidget {
           child: Card.outlined(
               color: Colors.white,
               child: Padding(
-                padding: const EdgeInsets.all(6),
+                padding: const EdgeInsets.all(20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(pokemon.name[0].toUpperCase() +
-                        pokemon.name.substring(1)),
+                    Text(
+                      pokemon.name[0].toUpperCase() + pokemon.name.substring(1),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                    ),
+                    Divider(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.network(
+                          pokemon.frontImage,
+                          width: 400,
+                          height: 400,
+                        ),
+                      ],
+                    ),
                     Text('HP : ${pokemon.hp}'),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,10 +46,18 @@ class PokemonCard extends StatelessWidget {
                         Text('Def : ${pokemon.def}'),
                       ],
                     ),
-                    Text('Sp. Atk : ${pokemon.speAtk}'),
-                    Text('Sp. Def : ${pokemon.speDef}'),
-                    Text('Speed : ${pokemon.speed}'),
-                    Text('Total : ${pokemon.total}'),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Sp. Atk : ${pokemon.speAtk}'),
+                          Text('Sp. Def : ${pokemon.speDef}'),
+                        ]),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Speed : ${pokemon.speed}'),
+                          Text('Total : ${pokemon.total}'),
+                        ])
                   ],
                 ),
               )),

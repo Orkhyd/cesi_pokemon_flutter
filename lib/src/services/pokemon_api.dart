@@ -43,6 +43,8 @@ class PokemonApiService {
           name: data['name'],
           type: data['types'][0]['type']['name'],
           sprite: data['sprites']['front_default'],
+          frontImage: data['sprites']['other']['official-artwork']
+              ['front_default'],
           hp: data['stats'][0]['base_stat'],
           atk: data['stats'][1]['base_stat'],
           def: data['stats'][2]['base_stat'],
