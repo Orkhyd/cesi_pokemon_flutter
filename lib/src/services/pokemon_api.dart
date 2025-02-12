@@ -40,14 +40,15 @@ class PokemonApiService {
         final data = response.data;
 
         return Pokemon(
-          name: data['name'][0].toUpperCase() + data['name'].substring(1),
+          name: data['name'],
+          type: data['types'][0]['type']['name'],
           sprite: data['sprites']['front_default'],
           hp: data['stats'][0]['base_stat'],
           atk: data['stats'][1]['base_stat'],
           def: data['stats'][2]['base_stat'],
           speAtk: data['stats'][3]['base_stat'],
           speDef: data['stats'][4]['base_stat'],
-          vit: data['stats'][5]['base_stat'],
+          speed: data['stats'][5]['base_stat'],
         );
       } else {
         throw Exception('Failed to load Pokemon details');
