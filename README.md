@@ -1,6 +1,6 @@
-# pokemon_1
+# Cesi – Pokemon Flutter
 
-A new Flutter project.
+by Marius
 
 ## Getting Started
 
